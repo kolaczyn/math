@@ -1,13 +1,14 @@
 #include <iostream>
 #include "vec.h"
-
-typedef vec<float, 2> vec2;
-typedef vec<float, 3> vec3;
-typedef vec<float, 4> vec4;
+#include "mat.h"
+#include "utils.h"
 
 int main() {
-	vec2 v1;
-	vec2 v2(2.5);
-	std::cout << v1.dot(v2)<< std::endl;
+	mat4 m1(1);
+	m1[1] = vec4(3);
+	mat4 m2(5);
+	m2[1][0] = 9;
+	std::cout << m1 << "\n-----\n" << m2 << "\n-----\n" << m1 - m2 << std::endl;
 	std::cin.get();
+	return 0;
 }
