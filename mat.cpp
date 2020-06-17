@@ -20,7 +20,6 @@ namespace kola {
 						c[i + n * j] = 0;
 			}
 		}
-
 		template<typename T, int n>
 		mat<T, n>::~mat() {
 
@@ -58,7 +57,9 @@ namespace kola {
 		mat<T, n> mat<T, n>::operator*(const mat& other) const{
 			mat out;
 			for (int i = 0; i < n; i++)
-				out.v[i] = this->v[i] - other.v[i];
+				for (int j = 0; j < n; j++)
+					for (int k = 0; k < n; k++)
+						out[i][j] += (*this)[k][j] * other.v[i][k];// fix this
 			return out;
 		}
 

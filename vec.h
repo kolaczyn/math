@@ -3,13 +3,14 @@
 // TODO
 // make it possible to refer to arr[0] as x or r, arr[1] as y or g etc
 // every plus makes a new variable.
-// add += so you don't have to make a copy
+// add += so no copy
 namespace kola {
 	namespace math {
 		template <typename T, int n>
 		class vec {
-		public:
+		private:
 			T arr[n];
+		public:
 
 			vec();
 			vec(T init);
@@ -22,6 +23,8 @@ namespace kola {
 			T& operator[](int i);
 
 			T dot(const vec& other) const;
+
+
 			friend std::ostream& operator<<(std::ostream& output, const vec& v) {
 				output << '(' << ' ';
 				for (int i = 0; i < n; i++)
